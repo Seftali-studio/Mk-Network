@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMP Sunucumuz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* En Üstteki Navigasyon Çubuğu */
+        .navbar {
+            background-color: #161b22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #8b949e;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .nav-links a.active {
+            color: #f0883e;
+            background-color: rgba(240, 136, 62, 0.1);
+        }
+
+        /* Üst Banner Alanı */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            border-bottom: 3px solid #21262d;
+        }
+
+        .server-info-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(22, 27, 34, 0.85);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+        .server-icon { font-size: 28px; }
+        .server-details .status { font-size: 12px; color: #3fb950; font-weight: bold; text-transform: uppercase; }
+        .server-details .ip { font-size: 15px; font-weight: bold; color: #c9d1d9; }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: #1f6feb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            border: 3px solid #58a6ff;
+            box-shadow: 0 0 15px rgba(31, 111, 235, 0.5);
+        }
+        .play-btn {
+            background: linear-gradient(135deg, #238636, #2ea043);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .play-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2ea043, #3fb950);
+        }
+
+        .social-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(22, 27, 34, 0.85);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+        .social-right:hover {
+            background: rgba(35, 134, 54, 0.2);
+            border-color: #238636;
+        }
+        .kick-icon {
+            width: 24px;
+            height: 24px;
+            background: #53fc18;
+            color: black;
+            font-weight: bold;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* ANA İÇERİK BÖLÜMÜ (Haberler ve Admin Paneli) */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #e6edf3;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        /* Haber Kartı */
+        .news-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .news-img {
+            width: 45%;
+            background: url('https://images.unsplash.com/photo-1627856013091-fed6e4e30462?q=80&w=800') center/cover;
+        }
+        .news-body {
+            width: 55%;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .news-meta {
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 8px;
+        }
+        .news-title {
+            font-size: 18px;
+            color: #f0f6fc;
+            margin-bottom: 12px;
+        }
+        .news-desc {
+            font-size: 13px;
+            color: #8b949e;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .read-more-btn {
+            background: #f0883e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: 0.2s;
+        }
+        .read-more-btn:hover { background: #d7742d; }
+
+        /* Admin Kartı (Patates_14) */
+        .admin-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .admin-badge {
+            position: absolute;
+            top: 15px;
+            background: rgba(235, 87, 87, 0.15);
+            color: #f85149;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(248, 81, 73, 0.4);
+            text-transform: uppercase;
+        }
+        .admin-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid #f0883e;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background: #21262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        .admin-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f0f6fc;
+            margin-bottom: 5px;
+        }
+        .admin-title-text {
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 20px;
+        }
+        .admin-status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #3fb950;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        /* Minecraft Tarzı Açılır Pencere (Modal) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+        .minecraft-modal {
+            background: #1c1c1c;
+            border: 4px solid #333;
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+            width: 500px;
+            padding: 30px;
+            border-radius: 6px;
+            color: #ffffff;
+            position: relative;
+        }
+        .minecraft-modal h2 {
+            font-size: 20px; margin-bottom: 20px; color: #fff;
+            border-bottom: 2px solid #444; padding-bottom: 10px;
+        }
+        .minecraft-modal ol {
+            margin-left: 20px; font-size: 14px; color: #ccc; line-height: 1.6; margin-bottom: 20px;
+        }
+        .server-input-box {
+            background: #000; border: 2px solid #555; padding: 12px;
+            color: #53fc18; font-family: monospace; font-size: 16px;
+            margin-bottom: 15px; text-align: center; border-radius: 4px;
+        }
+        .mc-copy-btn {
+            width: 100%; background: #5e73af; border: 2px solid #3c4c79;
+            color: white; padding: 12px; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 4px;
+        }
+        .mc-copy-btn:hover { background: #748bc9; }
+        .close-modal {
+            position: absolute; top: 15px; right: 15px; background: #a00;
+            color: white; border: none; width: 25px; height: 25px; font-weight: bold; cursor: pointer; border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVİGASYON -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="active">Anasayfa</a></li>
+            <li><a href="#">Mağaza</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Yardım</a></li>
+            <li><a href="#">Destek</a></li>
+        </ul>
+    </nav>
+
+    <!-- BANNER -->
+    <div class="hero-banner">
+        <div class="server-info-left">
+            <div class="server-icon">🎮</div>
+            <div class="server-details">
+                <div class="status">1 OYUNCU AKTIF</div>
+                <div class="ip">sunucu.adresimiz.com</div>
+            </div>
+        </div>
+
+        <div class="center-content">
+            <div class="logo">ŞS</div>
+            <button class="play-btn" onclick="openModal()">Şimdi Oyna</button>
+        </div>
+
+        <a href="https://kick.com/kullaniciadi" target="_blank" class="social-right">
+            <div class="kick-icon">K</div>
+            <span>KICK HESABI</span>
+        </a>
+    </div>
+
+    <!-- HABERLER VE ADMIN BÖLÜMÜ -->
+    <div class="main-container">
+        <h2 class="section-title">Haber</h2>
+        <div class="content-grid">
+            <!-- Sol: Duyuru Haberi -->
+            <div class="news-card">
+                <div class="news-img"></div>
+                <div class="news-body">
+                    <div>
+                        <div class="news-meta">Duyurular • Bugün</div>
+                        <h3 class="news-title">Sunucumuz Resmi Olarak Açıldı!</h3>
+                        <p class="news-desc">Uzun uğraşlar sonucunda hazırladığımız SMP sunucumuz nihayet kapılarını açtı. Yerini al ve maceraya başla!</p>
+                    </div>
+                    <button class="read-more-btn">Devamını Oku</button>
+                </div>
+            </div>
+
+            <!-- Sağ: Sunucu Admini (patates_14) -->
+            <div class="admin-card">
+                <div class="admin-badge">Sunucu Yetkilisi</div>
+                <div class="admin-avatar">🥔</div>
+                <div class="admin-name">patates_14</div>
+                <div class="admin-title-text"><span class="admin-status-dot"></span>Kurucu & Admin</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="playModal">
+        <div class="minecraft-modal">
+            <button class="close-modal" onclick="closeModal()">X</button>
+            <h2>Sunucuda Oyna</h2>
+            <ol>
+                <li>Minecraft'ta Çoklu Oyuncu 'ya gidin, ardından Sunucu Ekle 'ye tıklayın.</li>
+                <li>Aşağıdaki adresi sunucu adresine girin ve Tamam'a tıklayın.</li>
+            </ol>
+            <div class="server-input-box">sunucu.adresimiz.com</div>
+            <button class="mc-copy-btn" onclick="copyIp()">Kopyala</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('playModal');
+        function openModal() { modal.style.display = 'flex'; }
+        function closeModal() { modal.style.display = 'none'; }
+        function copyIp() {
+            navigator.clipboard.writeText("sunucu.adresimiz.com").then(() => {
+                alert("Sunucu adresi panoya kopyalandı!");
+            });
+        }
+        window.onclick = function(event) { if (event.target == modal) closeModal(); }
+    </script>
+</body>
+</html>
