@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMP Sunucumuz</title>
+    <title>Mk network - SMP Sunucusu</title>
     <style>
         * {
             margin: 0;
@@ -91,9 +91,10 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 20px;
             border: 3px solid #58a6ff;
             box-shadow: 0 0 15px rgba(31, 111, 235, 0.5);
+            letter-spacing: -1px;
         }
         .play-btn {
             background: linear-gradient(135deg, #238636, #2ea043);
@@ -125,8 +126,8 @@
             transition: 0.2s;
         }
         .social-right:hover {
-            background: rgba(35, 134, 54, 0.2);
-            border-color: #238636;
+            background: rgba(83, 252, 24, 0.15);
+            border-color: #53fc18;
         }
         .kick-icon {
             width: 24px;
@@ -171,7 +172,7 @@
         }
         .news-img {
             width: 45%;
-            background: url('https://images.unsplash.com/photo-1627856013091-fed6e4e30462?q=80&w=800') center/cover;
+            background: url('https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800') center/cover;
         }
         .news-body {
             width: 55%;
@@ -209,7 +210,7 @@
         }
         .read-more-btn:hover { background: #d7742d; }
 
-        /* Admin Kartı (Patates_14) */
+        /* Admin Kartı (patates_14) */
         .admin-card {
             background: #161b22;
             border: 1px solid #30363d;
@@ -330,16 +331,16 @@
             <div class="server-icon">🎮</div>
             <div class="server-details">
                 <div class="status">1 OYUNCU AKTIF</div>
-                <div class="ip">sunucu.adresimiz.com</div>
+                <div class="ip">Mk_network.aternos.me</div>
             </div>
         </div>
 
         <div class="center-content">
-            <div class="logo">ŞS</div>
+            <div class="logo">Mk Net</div>
             <button class="play-btn" onclick="openModal()">Şimdi Oyna</button>
         </div>
 
-        <a href="https://kick.com/kullaniciadi" target="_blank" class="social-right">
+        <a href="https://kick.com/mikrafonexp" target="_blank" class="social-right">
             <div class="kick-icon">K</div>
             <span>KICK HESABI</span>
         </a>
@@ -355,7 +356,7 @@
                 <div class="news-body">
                     <div>
                         <div class="news-meta">Duyurular • Bugün</div>
-                        <h3 class="news-title">Sunucumuz Resmi Olarak Açıldı!</h3>
+                        <h3 class="news-title">Sunucumuz Açıldı</h3>
                         <p class="news-desc">Uzun uğraşlar sonucunda hazırladığımız SMP sunucumuz nihayet kapılarını açtı. Yerini al ve maceraya başla!</p>
                     </div>
                     <button class="read-more-btn">Devamını Oku</button>
@@ -381,7 +382,7 @@
                 <li>Minecraft'ta Çoklu Oyuncu 'ya gidin, ardından Sunucu Ekle 'ye tıklayın.</li>
                 <li>Aşağıdaki adresi sunucu adresine girin ve Tamam'a tıklayın.</li>
             </ol>
-            <div class="server-input-box">sunucu.adresimiz.com</div>
+            <div class="server-input-box">Mk_network.aternos.me</div>
             <button class="mc-copy-btn" onclick="copyIp()">Kopyala</button>
         </div>
     </div>
@@ -391,7 +392,7 @@
         function openModal() { modal.style.display = 'flex'; }
         function closeModal() { modal.style.display = 'none'; }
         function copyIp() {
-            navigator.clipboard.writeText("sunucu.adresimiz.com").then(() => {
+            navigator.clipboard.writeText("Mk_network.aternos.me").then(() => {
                 alert("Sunucu adresi panoya kopyalandı!");
             });
         }
