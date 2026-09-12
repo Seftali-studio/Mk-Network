@@ -2,21 +2,119 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Yardım - Mk network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yardım & Rehber - Mk network</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #0d1117; color: #fff; min-height: 100vh; }
-        .navbar { background-color: #161b22; display: flex; justify-content: center; padding: 12px; border-bottom: 1px solid #30363d; }
-        .nav-links { display: flex; list-style: none; gap: 10px; }
-        .nav-links a { text-decoration: none; color: #8b949e; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
-        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-links a.active { color: #f0883e; background: rgba(240, 136, 62, 0.1); }
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; text-align: center; }
-        h1 { margin-bottom: 20px; color: #f0f6fc; }
-        p { color: #8b949e; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #161b22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #8b949e;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .nav-links a.active {
+            color: #f0883e;
+            background-color: rgba(240, 136, 62, 0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-size: 28px;
+            color: #f0f6fc;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            color: #8b949e;
+            font-size: 15px;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .help-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .help-card.full-width {
+            grid-column: span 2;
+        }
+        .help-card h3 {
+            font-size: 18px;
+            color: #f0883e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .help-card p, .help-card ul {
+            color: #8b949e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .help-card ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .help-card li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-text {
+            color: #58a6ff;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="index.html">Anasayfa</a></li>
@@ -26,9 +124,76 @@
             <li><a href="destek.html">Destek</a></li>
         </ul>
     </nav>
+
     <div class="container">
-        <h1>Yardım & SSS</h1>
-        <p>Sunucuya nasıl girilir ve kurallar nelerdir yakında eklenecek.</p>
+        <div class="page-header">
+            <h1>Sunucu Yardım & Rehber Merkezi</h1>
+            <p>Mk Network hakkında merak ettiğiniz her şeyi ve sunucu kurallarını burada bulabilirsiniz.</p>
+        </div>
+
+        <div class="help-grid">
+            <!-- 1. Sürüm ve Giriş -->
+            <div class="help-card">
+                <h3>🎮 Sürüm ve Giriş Koşulları</h3>
+                <p>Sunucumuz en güncel sürüm olan <span class="highlight-text">26.2</span> ile tam uyumludur. Giriş yapmak için orijinal (premium) olma zorunluluğu yoktur; tüm oyuncular sunucumuza rahatlıkla bağlanabilir.</p>
+            </div>
+
+            <!-- 2. Oyun Modları -->
+            <div class="help-card">
+                <h3>🗺️ Oyun Modları</h3>
+                <p>Şu an aktif olarak <span class="highlight-text">Survival (SMP)</span> modumuz hizmet vermektedir. Çok yakında Towny, Parkur ve Toplu Skyblock modları da aramızda olacak!</p>
+            </div>
+
+            <!-- 3. Dünya ve Harita -->
+            <div class="help-card">
+                <h3>🌍 Harita ve Sıfırlama</h3>
+                <p>Dünyalarımız standart Minecraft dünyası yapısındadır. Emeklerinizin boşa gitmemesi için <span class="highlight-text">harita reseti (sıfırlaması) kesinlikle atılmayacaktır.</span></p>
+            </div>
+
+            <!-- 4. Koruma ve Claim -->
+            <div class="help-card">
+                <h3>🛡️ Claim (Arsa Koruma) Sistemi</h3>
+                <p>Yapılarınızı ve eşyalarınızı güvenle korumanız için <span class="highlight-text">claim komutları</span> aktif edilmiştir. Claim sınırımız bulunmamaktadır, dilediğiniz gibi alanınızı büyütebilirsiniz.</p>
+            </div>
+
+            <!-- 5. Ekonomi ve Ticaret -->
+            <div class="help-card">
+                <h3>💰 Ekonomi, Market ve Kasalar</h3>
+                <p>Sunucuda aktif bir para birimi yer alır. Oyuncular arası ticaret için <span class="highlight-text">/market</span>, Player Auctions ve chest shop sistemleri aktiftir. Ayrıca Monster, Maden ve Zırh kasaları mevcuttur.</p>
+            </div>
+
+            <!-- 6. Yetkili İletişimi -->
+            <div class="help-card">
+                <h3>🛎️ Yetkiliye Nasıl Ulaşılır?</h3>
+                <p>Sorunlarınız için oyun içi chatten yazabilir, lobideki butondan yetkili çağırabilir, destek maili gönderebilir veya Kick yayınları üzerinden anında yardım isteyebilirsiniz.</p>
+            </div>
+
+            <!-- 7. VIP Sistemi -->
+            <div class="help-card">
+                <h3>⭐ VIP / Bağışçılık Sistemi</h3>
+                <p>VIP rütbeleri parayla satılmaz; tamamen <span class="highlight-text">etkinlikler ve yarışmalar</span> yoluyla kazanılır. VIP kullanıcılara her gün rastgele 1 adet kasa anahtarı ve çeşitli madenler hediye edilir.</p>
+            </div>
+
+            <!-- 8. Etkinlikler -->
+            <div class="help-card">
+                <h3>🎉 Etkinlikler ve Yarışmalar</h3>
+                <p>Her cuma 19:00 - 21:00 arası <span class="highlight-text">Gaming Gecesi</span> düzenlenir. Cumartesi günleri ise yapı yarışmaları ve parkur gibi eğlenceli etkinlikler yapılır.</p>
+            </div>
+
+            <!-- 9. Kural ve Cezalandırmalar (Tam Genişlik) -->
+            <div class="help-card full-width">
+                <h3>⚖️ Kurallar ve Kademeli Ceza Sistemi</h3>
+                <p>Hile türleri (Xray, KillAura vb.) kesinlikle yasaktır. Sohbet ve küfür ihlallerinde ise adil ve caydırıcı <span class="highlight-text">kademeli ceza sistemi</span> uygulanır:</p>
+                <ul>
+                    <li><strong>1. İhlal:</strong> 2 Günlük Ban (1 ay boyunca temiz kalması gerekir).</li>
+                    <li><strong>2. İhlal (1 ay dolmadan tekrar ederse):</strong> 1 Aylık Ban.</li>
+                    <li><strong>3. İhlal (Süre dolmadan tekrar ederse):</strong> 1 Yıllık Ban.</li>
+                    <li><strong>4. Tekrarı halinde:</strong> Sınırsız (Permanet) Ban.</li>
+                </ul>
+                <p style="margin-top: 10px;"><em>Not: Claim dışı alanlar doğal olarak PvP ve yıkıma serbesttir ancak claimli alanlardaki veya sandıklardaki izinsiz eşya alımları cezalandırılır.</em></p>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
