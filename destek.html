@@ -2,21 +2,109 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destek - Mk network</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #0d1117; color: #fff; min-height: 100vh; }
-        .navbar { background-color: #161b22; display: flex; justify-content: center; padding: 12px; border-bottom: 1px solid #30363d; }
-        .nav-links { display: flex; list-style: none; gap: 10px; }
-        .nav-links a { text-decoration: none; color: #8b949e; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 8px; }
-        .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-links a.active { color: #f0883e; background: rgba(240, 136, 62, 0.1); }
-        .container { max-width: 1000px; margin: 40px auto; padding: 20px; text-align: center; }
-        h1 { margin-bottom: 20px; color: #f0f6fc; }
-        p { color: #8b949e; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #161b22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #30363d;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #8b949e;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .nav-links a.active {
+            color: #f0883e;
+            background-color: rgba(240, 136, 62, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .support-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 24px;
+            color: #f0f6fc;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #8b949e;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .email-box {
+            background: #0d1117;
+            border: 2px solid #30363d;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 18px;
+            color: #58a6ff;
+            display: inline-block;
+            margin-bottom: 25px;
+            user-select: all;
+        }
+        .support-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #238636, #2ea043);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .support-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2ea043, #3fb950);
+        }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="index.html">Anasayfa</a></li>
@@ -26,9 +114,19 @@
             <li><a href="destek.html" class="active">Destek</a></li>
         </ul>
     </nav>
+
     <div class="container">
-        <h1>Destek Talebi</h1>
-        <p>Sorun bildirmek veya yetkililerle iletişime geçmek için Discord veya Kick üzerinden ulaşabilirsiniz.</p>
+        <div class="support-card">
+            <h1>Destek Merkezi</h1>
+            <p>Sunucumuzla ilgili yaşadığınız sorunları, önerilerinizi veya bildirmek istediğiniz hataları bize e-posta yoluyla iletebilirsiniz. En kısa sürede geri dönüş yapılacaktır.</p>
+            
+            <div class="email-box">mknetworkdestek@gmail.com</div>
+            
+            <div>
+                <a href="mailto:mknetworkdestek@gmail.com" class="support-btn">E-Posta Gönder</a>
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
