@@ -17,7 +17,6 @@
             min-height: 100vh;
         }
 
-        /* En Üstteki Navigasyon Çubuğu */
         .navbar {
             background-color: #161b22;
             display: flex;
@@ -50,7 +49,6 @@
             background-color: rgba(240, 136, 62, 0.1);
         }
 
-        /* Üst Banner Alanı */
         .hero-banner {
             position: relative;
             width: 100%;
@@ -142,7 +140,6 @@
             font-size: 12px;
         }
 
-        /* ANA İÇERİK BÖLÜMÜ (Haberler ve Admin Paneli) */
         .main-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -161,7 +158,6 @@
             gap: 25px;
         }
 
-        /* Haber Kartı */
         .news-card {
             background: #161b22;
             border: 1px solid #30363d;
@@ -169,10 +165,12 @@
             display: flex;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            height: fit-content;
         }
         .news-img {
             width: 45%;
             background: url('https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800') center/cover;
+            min-height: 220px;
         }
         .news-body {
             width: 55%;
@@ -210,7 +208,12 @@
         }
         .read-more-btn:hover { background: #d7742d; }
 
-        /* Admin Kartı (patates_14) */
+        /* Sağ Taraf Admin Kolonu */
+        .admins-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
         .admin-card {
             background: #161b22;
             border: 1px solid #30363d;
@@ -238,28 +241,27 @@
             text-transform: uppercase;
         }
         .admin-avatar {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 3px solid #f0883e;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 10px;
+            margin-bottom: 12px;
             background: #21262d;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 32px;
         }
         .admin-name {
             font-size: 18px;
             font-weight: bold;
             color: #f0f6fc;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         .admin-title-text {
             font-size: 13px;
             color: #8b949e;
-            margin-bottom: 20px;
         }
         .admin-status-dot {
             display: inline-block;
@@ -270,7 +272,6 @@
             margin-right: 5px;
         }
 
-        /* Minecraft Tarzı Açılır Pencere (Modal) */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -314,18 +315,16 @@
 </head>
 <body>
 
-    <!-- NAVİGASYON -->
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="#" class="active">Anasayfa</a></li>
-            <li><a href="#">Mağaza</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Yardım</a></li>
-            <li><a href="#">Destek</a></li>
+            <li><a href="index.html" class="active">Anasayfa</a></li>
+            <li><a href="magaza.html">Mağaza</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="yardim.html">Yardım</a></li>
+            <li><a href="destek.html">Destek</a></li>
         </ul>
     </nav>
 
-    <!-- BANNER -->
     <div class="hero-banner">
         <div class="server-info-left">
             <div class="server-icon">🎮</div>
@@ -346,11 +345,9 @@
         </a>
     </div>
 
-    <!-- HABERLER VE ADMIN BÖLÜMÜ -->
     <div class="main-container">
         <h2 class="section-title">Haber</h2>
         <div class="content-grid">
-            <!-- Sol: Duyuru Haberi -->
             <div class="news-card">
                 <div class="news-img"></div>
                 <div class="news-body">
@@ -363,17 +360,25 @@
                 </div>
             </div>
 
-            <!-- Sağ: Sunucu Admini (patates_14) -->
-            <div class="admin-card">
-                <div class="admin-badge">Sunucu Yetkilisi</div>
-                <div class="admin-avatar">🥔</div>
-                <div class="admin-name">patates_14</div>
-                <div class="admin-title-text"><span class="admin-status-dot"></span>Kurucu & Admin</div>
+            <!-- Sağ Taraf: Adminler (mikrafonexp üstte, patates_14 altta) -->
+            <div class="admins-column">
+                <div class="admin-card">
+                    <div class="admin-badge">Kurucu</div>
+                    <div class="admin-avatar">👑</div>
+                    <div class="admin-name">mikrafonexp</div>
+                    <div class="admin-title-text"><span class="admin-status-dot"></span>Kurucu</div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-badge">Yetkili</div>
+                    <div class="admin-avatar">🥔</div>
+                    <div class="admin-name">patates_14</div>
+                    <div class="admin-title-text"><span class="admin-status-dot"></span>Admin</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL -->
     <div class="modal-overlay" id="playModal">
         <div class="minecraft-modal">
             <button class="close-modal" onclick="closeModal()">X</button>
